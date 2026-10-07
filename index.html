@@ -218,7 +218,7 @@
       cursor: pointer;
     }
 
-    /* --- SECTION PAGES (SPA) --- */
+    /* --- SPA SECTION PAGES --- */
     .page-section {
       display: none;
       animation: fadeIn 0.4s ease-in-out forwards;
@@ -233,7 +233,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* --- HERO SECTION --- */
+    /* --- HERO --- */
     .hero-card {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       border-radius: var(--border-radius);
@@ -255,13 +255,13 @@
     }
 
     .hero-text h1 {
-      font-size: 32px;
+      font-size: 30px;
       margin-bottom: 12px;
       line-height: 1.2;
     }
 
     .hero-text p {
-      font-size: 16px;
+      font-size: 15px;
       opacity: 0.95;
       margin-bottom: 24px;
     }
@@ -348,7 +348,7 @@
       font-weight: 700;
     }
 
-    /* --- EMPTY STATE STYLING --- */
+    /* --- EMPTY STATE --- */
     .empty-state {
       background: var(--bg-card);
       border-radius: var(--border-radius);
@@ -357,6 +357,7 @@
       box-shadow: var(--shadow);
       border: 2px dashed rgba(108, 92, 231, 0.2);
       margin: 20px 0;
+      width: 100%;
     }
 
     .empty-state i {
@@ -379,7 +380,7 @@
       margin: 0 auto 20px;
     }
 
-    /* --- GENERAL CARDS & GRIDS --- */
+    /* --- CARDS & LAYOUTS --- */
     .section-title {
       font-size: 24px;
       color: var(--primary);
@@ -388,6 +389,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .card {
@@ -399,13 +401,13 @@
       border: 1px solid rgba(108, 92, 231, 0.08);
     }
 
-    .grid-3 {
+    .grid-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
     }
 
-    /* --- UPLOAD & CONTROLS --- */
+    /* --- TOOLBAR ACTIONS --- */
     .toolbar-actions {
       display: flex;
       gap: 12px;
@@ -415,7 +417,7 @@
       justify-content: space-between;
     }
 
-    .search-input, .select-input {
+    .search-input {
       padding: 12px 18px;
       border-radius: 30px;
       border: 2px solid rgba(108, 92, 231, 0.15);
@@ -425,9 +427,10 @@
       font-size: 14px;
       outline: none;
       transition: var(--transition);
+      min-width: 220px;
     }
 
-    .search-input:focus, .select-input:focus {
+    .search-input:focus {
       border-color: var(--primary);
     }
 
@@ -443,6 +446,8 @@
       align-items: center;
       gap: 8px;
       transition: var(--transition);
+      text-decoration: none;
+      font-size: 14px;
     }
 
     .btn-secondary:hover {
@@ -450,51 +455,82 @@
       transform: translateY(-2px);
     }
 
-    /* --- GALLERY ITEM --- */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 20px;
+    .btn-primary-sm {
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: none;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
     }
 
-    .gallery-card {
+    .btn-primary-sm:hover {
+      background: var(--primary-dark);
+    }
+
+    /* --- ITEM CARDS --- */
+    .item-card {
       background: var(--bg-card);
       border-radius: var(--border-radius);
       overflow: hidden;
       box-shadow: var(--shadow);
       transition: var(--transition);
       position: relative;
+      border: 1px solid rgba(108, 92, 231, 0.08);
+      display: flex;
+      flex-direction: column;
     }
 
-    .gallery-card:hover {
+    .item-card:hover {
       transform: translateY(-5px);
     }
 
-    .gallery-img {
+    .item-img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
       cursor: pointer;
     }
 
-    .gallery-info {
-      padding: 15px;
-    }
-
-    .gallery-title {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .gallery-meta {
-      font-size: 12px;
-      color: var(--text-muted);
+    .item-info {
+      padding: 16px;
+      flex: 1;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
     }
 
-    /* --- WALI KELAS PAGE --- */
+    .item-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .item-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .item-badge {
+      display: inline-block;
+      background: rgba(108, 92, 231, 0.1);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      align-self: flex-start;
+      margin-bottom: 8px;
+    }
+
+    /* --- PROFILE WALI KELAS --- */
     .profile-wali-card {
       display: flex;
       flex-direction: column;
@@ -504,17 +540,55 @@
       padding: 40px 20px;
     }
 
+    .avatar-wrapper {
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+
+    .avatar-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+      border: 4px solid var(--primary);
+    }
+
     .avatar-placeholder {
-      width: 140px;
-      height: 140px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 54px;
+      font-size: 60px;
       box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+    }
+
+    .btn-change-avatar {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: var(--secondary);
+      color: #fff;
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: var(--transition);
+    }
+
+    .btn-change-avatar:hover {
+      background: var(--secondary-dark);
+      transform: scale(1.1);
     }
 
     .wali-title {
@@ -580,7 +654,7 @@
       transform: rotate(180deg);
     }
 
-    /* --- MODAL DIALOG --- */
+    /* --- MODAL DIALOGS --- */
     .modal {
       display: none;
       position: fixed;
@@ -593,6 +667,7 @@
       align-items: center;
       justify-content: center;
       backdrop-filter: blur(4px);
+      padding: 20px;
     }
 
     .modal.active {
@@ -601,12 +676,14 @@
 
     .modal-content {
       background: var(--bg-card);
-      width: 90%;
+      width: 100%;
       max-width: 500px;
       border-radius: var(--border-radius);
       padding: 30px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.3);
       position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
     .modal-close {
@@ -639,6 +716,11 @@
       background: var(--bg-main);
       color: var(--text-main);
       font-family: inherit;
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
     }
 
     /* --- LIGHTBOX --- */
@@ -654,6 +736,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      padding: 20px;
     }
 
     .lightbox.active {
@@ -789,41 +872,38 @@
         </div>
       </div>
 
-      <!-- STATS GRID (RESET / KOSONG) -->
+      <!-- DYNAMIC STATS GRID -->
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
-          <div class="stat-value">0</div>
-          <div class="stat-label">Siswa Hebat</div>
+          <div class="stat-value" id="statSiswaCount">0</div>
+          <div class="stat-label">Siswa Terdaftar</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon"><i class="fa-solid fa-trophy"></i></div>
-          <div class="stat-value">0</div>
+          <div class="stat-value" id="statPrestasiCount">0</div>
           <div class="stat-label">Prestasi Diraih</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon"><i class="fa-solid fa-paint-brush"></i></div>
-          <div class="stat-value">0</div>
+          <div class="stat-value" id="statKaryaCount">0</div>
           <div class="stat-label">Karya Kreatif</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon"><i class="fa-solid fa-camera"></i></div>
-          <div class="stat-value">0</div>
-          <div class="stat-label">Foto & Video</div>
+          <div class="stat-value" id="statGaleriCount">0</div>
+          <div class="stat-label">Foto & Video Galeri</div>
         </div>
       </div>
 
-      <!-- RECENT HIGHLIGHT (EMPTY STATE) -->
+      <!-- HIGHLIGHT INFORMASI -->
       <div class="card">
         <div class="section-title">
           <span><i class="fa-solid fa-star" style="color: var(--secondary);"></i> Informasi & Dokumentasi Terbaru</span>
         </div>
-        <div class="empty-state">
-          <i class="fa-regular fa-folder-open"></i>
-          <h3>Belum Ada Dokumentasi Baru</h3>
-          <p>Dokumentasi kegiatan dan karya siswa kelas 6 TA 2026/2027 akan ditambahkan secara berkala.</p>
-          <a href="#galeri" class="btn-secondary" style="text-decoration:none;"><i class="fa-solid fa-upload"></i> Unggah Dokumentasi Pertama</a>
-        </div>
+        <p style="color: var(--text-muted); line-height: 1.6;">
+          Selamat datang di portal Dokumentasi Kelas 6 SDN Kesilir 02 Tahun Ajaran 2026/2027! Semua warga sekolah, siswa, dan orang tua diperbolehkan mengunggah karya, foto, prestasi, dan kesan kenangan secara mandiri.
+        </p>
       </div>
 
       <!-- FAQ ACCORDION -->
@@ -832,27 +912,37 @@
         
         <div class="faq-item">
           <div class="faq-header">
-            <span>Apa tujuan dari website dokumentasi ini?</span>
+            <span>Siapa yang bisa mengunggah foto, siswa, karya, atau kesan?</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
           <div class="faq-body">
-            Website ini dibuat sebagai album kenangan digital dan pusat penyimpanan karya, kegiatan, serta prestasi siswa Kelas 6 SDN Kesilir 02 Tahun Ajaran 2026/2027.
+            Siapa saja (Siswa, Orang Tua/Wali, Guru) dapat menambahkan siswa baru, mengunggah foto galeri, menambahkan karya, prestasi, maupun menuliskan komentar kenangan.
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-header">
-            <span>Bagaimana cara menambahkan foto ke galeri?</span>
+            <span>Apakah foto, video, atau komen yang diunggah bisa dihapus?</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
           <div class="faq-body">
-            Siswa atau wali murid dapat mengunggah foto secara langsung melalui menu <strong>Galeri</strong> dengan menekan tombol <strong>Upload Foto Baru</strong>.
+            Semua foto, video, karya, prestasi, data siswa, dan komentar/pesan yang telah diunggah <strong>TIDAK BISA DIHAPUS</strong> agar seluruh memori tersimpan secara permanen.
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-header">
-            <span>Siapa yang menjadi Wali Kelas 6 SDN Kesilir 02?</span>
+            <span>Apakah foto profil siswa atau Wali Kelas bisa diganti?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-body">
+            Ya! Khusus <strong>Foto Profil Siswa</strong> dan <strong>Foto Profil Wali Kelas</strong> dapat diperbarui atau diganti dengan foto baru kapan saja.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Siapa Wali Kelas 6 SDN Kesilir 02?</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
           <div class="faq-body">
@@ -879,11 +969,9 @@
 
       <div class="card">
         <h3>Struktur Organisasi Kelas</h3>
-        <div class="empty-state">
-          <i class="fa-solid fa-sitemap"></i>
-          <h3>Struktur Kelas Dikosongkan</h3>
-          <p>Data susunan pengurus kelas 6 (Ketua, Wakil, Sekretaris, Bendahara) akan diisi saat revisi mendatang.</p>
-        </div>
+        <p style="color: var(--text-muted); font-size: 14px;">
+          Susunan pengurus kelas 6 TA 2026/2027 akan disesuaikan secara dinamis.
+        </p>
       </div>
     </section>
 
@@ -891,13 +979,20 @@
     <section id="siswa" class="page-section">
       <div class="toolbar-actions">
         <h2 class="section-title" style="margin: 0;"><i class="fa-solid fa-user-graduate"></i> Data & Profil Siswa</h2>
-        <input type="text" class="search-input" id="searchSiswa" placeholder="Cari nama siswa..." disabled>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <input type="text" class="search-input" id="searchSiswaInput" placeholder="Cari nama siswa...">
+          <button class="btn-secondary" id="openAddSiswaBtn"><i class="fa-solid fa-user-plus"></i> Tambah Siswa</button>
+        </div>
       </div>
 
-      <div class="empty-state">
+      <div id="siswaGrid" class="grid-cards">
+        <!-- Dynamic Student Cards -->
+      </div>
+
+      <div id="siswaEmpty" class="empty-state">
         <i class="fa-solid fa-users-slash"></i>
-        <h3>Data Siswa Dikosongkan</h3>
-        <p>Daftar lengkap siswa-siswi Kelas 6 SDN Kesilir 02 TA 2026/2027 akan diisi pada proses revisi berikutnya.</p>
+        <h3>Belum Ada Data Siswa</h3>
+        <p>Klik tombol <strong>"Tambah Siswa"</strong> di atas untuk menambahkan data siswa kelas 6 beserta foto profilnya!</p>
       </div>
     </section>
 
@@ -905,23 +1000,35 @@
     <section id="karya" class="page-section">
       <div class="toolbar-actions">
         <h2 class="section-title" style="margin: 0;"><i class="fa-solid fa-palette"></i> Karya & Kreativitas Siswa</h2>
+        <button class="btn-secondary" id="openAddKaryaBtn"><i class="fa-solid fa-plus"></i> Upload Karya</button>
       </div>
 
-      <div class="empty-state">
+      <div id="karyaGrid" class="grid-cards">
+        <!-- Dynamic Karya Cards -->
+      </div>
+
+      <div id="karyaEmpty" class="empty-state">
         <i class="fa-solid fa-paintbrush"></i>
         <h3>Belum Ada Karya Diterbitkan</h3>
-        <p>Kumpulan hasil karya seni, tulisan, dan proyek kreatif siswa kelas 6 akan diunggah dan ditampilkan di sini.</p>
+        <p>Klik tombol <strong>"Upload Karya"</strong> untuk mengunggah kreasi gambar, lukisan, atau kerajinan tangan siswa!</p>
       </div>
     </section>
 
     <!-- 5. PRESTASI -->
     <section id="prestasi" class="page-section">
-      <h2 class="section-title"><i class="fa-solid fa-trophy"></i> Dokumentasi Prestasi</h2>
-      
-      <div class="empty-state">
+      <div class="toolbar-actions">
+        <h2 class="section-title" style="margin: 0;"><i class="fa-solid fa-trophy"></i> Dokumentasi Prestasi</h2>
+        <button class="btn-secondary" id="openAddPrestasiBtn"><i class="fa-solid fa-plus"></i> Upload Prestasi</button>
+      </div>
+
+      <div id="prestasiGrid" class="grid-cards">
+        <!-- Dynamic Prestasi Cards -->
+      </div>
+
+      <div id="prestasiEmpty" class="empty-state">
         <i class="fa-solid fa-award"></i>
         <h3>Belum Ada Data Prestasi</h3>
-        <p>Catatan prestasi akademik maupun non-akademik siswa Kelas 6 SDN Kesilir 02 akan diisi pada revisi mendatang.</p>
+        <p>Klik tombol <strong>"Upload Prestasi"</strong> untuk mencatatkan kebanggaan dan piala juara siswa kelas 6!</p>
       </div>
     </section>
 
@@ -929,18 +1036,17 @@
     <section id="galeri" class="page-section">
       <div class="toolbar-actions">
         <h2 class="section-title" style="margin: 0;"><i class="fa-solid fa-images"></i> Galeri Foto & Video</h2>
-        <button class="btn-secondary" id="openUploadBtn"><i class="fa-solid fa-upload"></i> Upload Foto</button>
+        <button class="btn-secondary" id="openUploadGaleriBtn"><i class="fa-solid fa-upload"></i> Upload Foto / Video</button>
       </div>
 
-      <!-- GALLERY DISPLAY CONTAINER -->
-      <div id="galleryContainer" class="gallery-grid">
-        <!-- Dynamic Photo Items will render here -->
+      <div id="galeriGrid" class="grid-cards">
+        <!-- Dynamic Gallery Items -->
       </div>
 
-      <div id="galleryEmpty" class="empty-state">
+      <div id="galeriEmpty" class="empty-state">
         <i class="fa-solid fa-photo-film"></i>
         <h3>Galeri Masih Kosong</h3>
-        <p>Belum ada foto yang diunggah. Silakan klik tombol <strong>"Upload Foto"</strong> di atas untuk menambahkan dokumentasi pertama!</p>
+        <p>Klik tombol <strong>"Upload Foto / Video"</strong> di atas untuk membagikan momen seru kegiatan kelas 6!</p>
       </div>
     </section>
 
@@ -949,7 +1055,7 @@
       <h2 class="section-title"><i class="fa-solid fa-heart"></i> Dinding Kenangan & Pesan</h2>
       
       <div class="card">
-        <h3>Tulis Pesan & Kesan Kelas 6</h3>
+        <h3>Tulis Pesan, Kesan & Komen Kenangan</h3>
         <form id="pesanForm" style="margin-top: 15px;">
           <div class="form-group">
             <label>Nama Pengirim</label>
@@ -957,13 +1063,17 @@
           </div>
           <div class="form-group">
             <label>Pesan / Kesan / Cerita</label>
-            <textarea id="pesanIsi" class="form-control" rows="3" placeholder="Tuliskan pesan atau pesan kesan untuk Kelas 6..." required></textarea>
+            <textarea id="pesanIsi" class="form-control" rows="3" placeholder="Tuliskan pesan atau kesan kenangan untuk Kelas 6..." required></textarea>
           </div>
-          <button type="submit" class="btn-secondary"><i class="fa-solid fa-paper-plane"></i> Kirim Pesan</button>
+          <div class="form-group">
+            <label>Lampirkan Foto Kenangan (Opsional)</label>
+            <input type="file" id="pesanFoto" class="form-control" accept="image/*">
+          </div>
+          <button type="submit" class="btn-secondary"><i class="fa-solid fa-paper-plane"></i> Kirim Pesan Kenangan</button>
         </form>
       </div>
 
-      <div id="pesanList" class="grid-3" style="margin-top: 20px;">
+      <div id="pesanList" class="grid-cards" style="margin-top: 20px;">
         <!-- Dynamic Messages Rendered Here -->
       </div>
 
@@ -979,15 +1089,18 @@
       <h2 class="section-title"><i class="fa-solid fa-chalkboard-user"></i> Profil Wali Kelas</h2>
       
       <div class="card profile-wali-card">
-        <!-- FOTO KOSONG (AVATAR PLACEHOLDER) -->
-        <div class="avatar-placeholder">
-          <i class="fa-solid fa-user-tie"></i>
+        <div class="avatar-wrapper">
+          <div id="waliAvatarContainer">
+            <div class="avatar-placeholder"><i class="fa-solid fa-user-tie"></i></div>
+          </div>
+          <button class="btn-change-avatar" id="openGantiWaliAvatarBtn" title="Ganti Foto Profil Wali Kelas">
+            <i class="fa-solid fa-camera"></i>
+          </button>
         </div>
 
         <div>
           <h3 class="wali-title">Vivta Lusiana, S.Si</h3>
           <div class="wali-subtitle">Wali Kelas 6 SDN Kesilir 02</div>
-          <!-- NIP KOSONG -->
           <div class="nip-badge">NIP: -</div>
         </div>
 
@@ -1002,43 +1115,142 @@
       <h2 class="section-title"><i class="fa-solid fa-gear"></i> Pengaturan Website</h2>
       
       <div class="card">
-        <h3>Pengelolaan Data Lokal (LocalStorage)</h3>
-        <p style="margin: 10px 0; color: var(--text-muted); font-size: 14px;">
-          Website ini menyimpan foto dan pesan kenangan yang diunggah secara lokal di browser Anda. Anda dapat mengosongkan data kapan saja.
+        <h3>Sistem Penyimpanan Permanen</h3>
+        <p style="margin-top: 10px; color: var(--text-muted); font-size: 14px; line-height: 1.6;">
+          Sesuai dengan aturan dokumentasi abadi, seluruh foto, video, karya, siswa, prestasi, dan kenangan yang diunggah tersimpan secara permanen tanpa opsi penghapusan. Khusus foto profil (siswa & Wali Kelas) dapat diperbarui kapan saja.
         </p>
-        <button class="btn-secondary" id="clearDataBtn" style="background: #e74c3c;">
-          <i class="fa-solid fa-trash-can"></i> Hapus Semua Foto & Pesan Unggahan
-        </button>
       </div>
     </section>
 
   </main>
 
-  <!-- MODAL UPLOAD FOTO -->
-  <div class="modal" id="uploadModal">
+  <!-- MODAL: TAMBAH SISWA -->
+  <div class="modal" id="addSiswaModal">
     <div class="modal-content">
-      <button class="modal-close" id="closeUploadBtn"><i class="fa-solid fa-xmark"></i></button>
-      <h3 style="margin-bottom: 20px; color: var(--primary);"><i class="fa-solid fa-upload"></i> Upload Foto Dokumentasi</h3>
-      
-      <form id="uploadForm">
+      <button class="modal-close" class="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="margin-bottom: 20px; color: var(--primary);"><i class="fa-solid fa-user-plus"></i> Tambah Siswa Baru</h3>
+      <form id="addSiswaForm">
         <div class="form-group">
-          <label>Judul Foto</label>
-          <input type="text" id="uploadJudul" class="form-control" placeholder="Contoh: Kegiatan Pramuka" required>
+          <label>Nama Lengkap Siswa</label>
+          <input type="text" id="siswaNama" class="form-control" placeholder="Contoh: Ahmad Fauzi" required>
+        </div>
+        <div class="form-group">
+          <label>Cita-Cita</label>
+          <input type="text" id="siswaCita" class="form-control" placeholder="Contoh: Dokter / Guru" required>
+        </div>
+        <div class="form-group">
+          <label>Hobi</label>
+          <input type="text" id="siswaHobi" class="form-control" placeholder="Contoh: Membaca / Memasak" required>
+        </div>
+        <div class="form-group">
+          <label>Foto Profil Siswa</label>
+          <input type="file" id="siswaFoto" class="form-control" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn-secondary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-save"></i> Simpan Data Siswa</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: GANTI FOTO PROFIL SISWA -->
+  <div class="modal" id="gantiSiswaFotoModal">
+    <div class="modal-content">
+      <button class="modal-close" class="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="margin-bottom: 20px; color: var(--primary);"><i class="fa-solid fa-camera"></i> Ganti Foto Profil Siswa</h3>
+      <form id="gantiSiswaFotoForm">
+        <input type="hidden" id="gantiSiswaId">
+        <div class="form-group">
+          <label>Pilih Foto Baru</label>
+          <input type="file" id="gantiSiswaFotoFile" class="form-control" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn-secondary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-arrows-rotate"></i> Perbarui Foto Profil</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: UPLOAD GALERI -->
+  <div class="modal" id="uploadGaleriModal">
+    <div class="modal-content">
+      <button class="modal-close" class="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="margin-bottom: 20px; color: var(--primary);"><i class="fa-solid fa-upload"></i> Upload Foto / Video Galeri</h3>
+      <form id="uploadGaleriForm">
+        <div class="form-group">
+          <label>Judul Dokumentasi</label>
+          <input type="text" id="galeriJudul" class="form-control" placeholder="Contoh: Upacara Bendera" required>
         </div>
         <div class="form-group">
           <label>Kategori</label>
-          <select id="uploadKategori" class="form-control">
-            <option value="Kegiatan">Kegiatan</option>
-            <option value="Karya">Karya Siswa</option>
-            <option value="Kenangan">Kenangan</option>
-            <option value="Umum">Umum</option>
+          <select id="galeriKategori" class="form-control">
+            <option value="Kegiatan">Kegiatan Sekolah</option>
+            <option value="Olahraga">Olahraga & Seni</option>
+            <option value="Kenangan">Momen Keseruan</option>
           </select>
         </div>
         <div class="form-group">
           <label>Pilih File Foto</label>
-          <input type="file" id="uploadFile" class="form-control" accept="image/*" required>
+          <input type="file" id="galeriFile" class="form-control" accept="image/*" required>
         </div>
-        <button type="submit" class="btn-secondary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-cloud-arrow-up"></i> Simpan ke Galeri</button>
+        <button type="submit" class="btn-secondary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-cloud-arrow-up"></i> Upload ke Galeri</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: UPLOAD KARYA -->
+  <div class="modal" id="uploadKaryaModal">
+    <div class="modal-content">
+      <button class="modal-close" class="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="margin-bottom: 20px; color: var(--primary);"><i class="fa-solid fa-palette"></i> Upload Karya Siswa</h3>
+      <form id="uploadKaryaForm">
+        <div class="form-group">
+          <label>Judul Karya</label>
+          <input type="text" id="karyaJudul" class="form-control" placeholder="Contoh: Lukisan Pemandangan" required>
+        </div>
+        <div class="form-group">
+          <label>Nama Pembuat Karya</label>
+          <input type="text" id="karyaPembuat" class="form-control" placeholder="Nama siswa pembuat" required>
+        </div>
+        <div class="form-group">
+          <label>Foto Hasil Karya</label>
+          <input type="file" id="karyaFile" class="form-control" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn-secondary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-upload"></i> Upload Karya</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: UPLOAD PRESTASI -->
+  <div class="modal" id="uploadPrestasiModal">
+    <div class="modal-content">
+      <button class="modal-close" class="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="margin-bottom: 20px; color: var(--primary);"><i class="fa-solid fa-trophy"></i> Upload Dokumentasi Prestasi</h3>
+      <form id="uploadPrestasiForm">
+        <div class="form-group">
+          <label>Nama Lomba / Prestasi</label>
+          <input type="text" id="prestasiJudul" class="form-control" placeholder="Contoh: Juara 1 Lomba Cerdas Cermat" required>
+        </div>
+        <div class="form-group">
+          <label>Nama Siswa Peraih</label>
+          <input type="text" id="prestasiSiswa" class="form-control" placeholder="Nama peraih prestasi" required>
+        </div>
+        <div class="form-group">
+          <label>Foto Piala / Sertifikat</label>
+          <input type="file" id="prestasiFile" class="form-control" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn-secondary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-upload"></i> Simpan Prestasi</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: GANTI FOTO WALI KELAS -->
+  <div class="modal" id="gantiWaliAvatarModal">
+    <div class="modal-content">
+      <button class="modal-close" class="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="margin-bottom: 20px; color: var(--primary);"><i class="fa-solid fa-camera"></i> Ganti Foto Profil Wali Kelas</h3>
+      <form id="gantiWaliAvatarForm">
+        <div class="form-group">
+          <label>Pilih Foto Baru Wali Kelas</label>
+          <input type="file" id="waliAvatarFile" class="form-control" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn-secondary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-arrows-rotate"></i> Perbarui Foto Wali Kelas</button>
       </form>
     </div>
   </div>
@@ -1049,25 +1261,28 @@
     <div class="lightbox-caption" id="lightboxCaption"></div>
   </div>
 
-  <!-- JAVASCRIPT VANILLA -->
+  <!-- JAVASCRIPT VANILLA COMPLETE -->
   <script>
-    // --- APP STATE & LOCAL STORAGE ---
-    let galleryData = JSON.parse(localStorage.getItem('kesilir_gallery')) || [];
+    // --- LOCAL STORAGE DATA ---
+    let siswaData = JSON.parse(localStorage.getItem('kesilir_siswa')) || [];
+    let galeriData = JSON.parse(localStorage.getItem('kesilir_galeri')) || [];
+    let karyaData = JSON.parse(localStorage.getItem('kesilir_karya')) || [];
+    let prestasiData = JSON.parse(localStorage.getItem('kesilir_prestasi')) || [];
     let pesanData = JSON.parse(localStorage.getItem('kesilir_pesan')) || [];
+    let waliAvatarData = localStorage.getItem('kesilir_wali_avatar') || '';
 
-    // --- DOM ELEMENTS ---
+    // --- DOM ELEMENTS & NAV ---
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.page-section');
     const sidebar = document.getElementById('sidebar');
     const mobileToggle = document.getElementById('mobileToggle');
     const themeToggle = document.getElementById('themeToggle');
 
-    // --- SPA ROUTING WITH HASH ---
+    // --- SPA ROUTING ---
     function handleRouting() {
       let hash = window.location.hash.replace('#', '') || 'beranda';
       let activeTarget = hash;
 
-      // Update Nav Link State
       let linkFound = false;
       navLinks.forEach(link => {
         if (link.getAttribute('data-target') === activeTarget) {
@@ -1083,7 +1298,6 @@
         activeTarget = 'beranda';
       }
 
-      // Show Active Section
       sections.forEach(sec => {
         if (sec.id === activeTarget) {
           sec.classList.add('active');
@@ -1092,7 +1306,6 @@
         }
       });
 
-      // Close mobile sidebar if open
       sidebar.classList.remove('open');
       window.scrollTo(0, 0);
     }
@@ -1100,17 +1313,19 @@
     window.addEventListener('hashchange', handleRouting);
     window.addEventListener('load', () => {
       handleRouting();
-      renderGallery();
+      updateStats();
+      renderSiswa();
+      renderGaleri();
+      renderKarya();
+      renderPrestasi();
       renderPesan();
+      renderWaliAvatar();
       initFAQ();
     });
 
-    // Mobile Sidebar Toggle
-    mobileToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-    });
+    mobileToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
 
-    // --- DARK MODE TOGGLE ---
+    // --- DARK MODE ---
     themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       const isDark = document.body.classList.contains('dark-mode');
@@ -1118,108 +1333,263 @@
       localStorage.setItem('kesilir_theme', isDark ? 'dark' : 'light');
     });
 
-    // Restore Theme Preference
     if (localStorage.getItem('kesilir_theme') === 'dark') {
       document.body.classList.add('dark-mode');
       themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
     }
 
+    // --- UPDATE COUNTER STATS ---
+    function updateStats() {
+      document.getElementById('statSiswaCount').innerText = siswaData.length;
+      document.getElementById('statGaleriCount').innerText = galeriData.length;
+      document.getElementById('statKaryaCount').innerText = karyaData.length;
+      document.getElementById('statPrestasiCount').innerText = prestasiData.length;
+    }
+
     // --- FAQ ACCORDION ---
     function initFAQ() {
-      const faqItems = document.querySelectorAll('.faq-item');
-      faqItems.forEach(item => {
-        const header = item.querySelector('.faq-header');
-        header.addEventListener('click', () => {
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-header').addEventListener('click', () => {
           const isOpen = item.classList.contains('active');
-          faqItems.forEach(i => i.classList.remove('active'));
+          document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
           if (!isOpen) item.classList.add('active');
         });
       });
     }
 
-    // --- UPLOAD FOTO & LOCALSTORAGE MANAGEMENT ---
-    const uploadModal = document.getElementById('uploadModal');
-    const openUploadBtn = document.getElementById('openUploadBtn');
-    const closeUploadBtn = document.getElementById('closeUploadBtn');
-    const uploadForm = document.getElementById('uploadForm');
+    // --- MODAL UTILITY ---
+    function openModal(id) { document.getElementById(id).classList.add('active'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
-    openUploadBtn.addEventListener('click', () => uploadModal.classList.add('active'));
-    closeUploadBtn.addEventListener('click', () => uploadModal.classList.remove('active'));
-
-    uploadForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const judul = document.getElementById('uploadJudul').value;
-      const kategori = document.getElementById('uploadKategori').value;
-      const fileInput = document.getElementById('uploadFile');
-      const file = fileInput.files[0];
-
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const newItem = {
-            id: Date.now(),
-            judul: judul,
-            kategori: kategori,
-            image: e.target.result,
-            tanggal: new Date().toLocaleDateString('id-ID')
-          };
-
-          galleryData.unshift(newItem);
-          localStorage.setItem('kesilir_gallery', JSON.stringify(galleryData));
-          renderGallery();
-          uploadForm.reset();
-          uploadModal.classList.remove('active');
-        };
-        reader.readAsDataURL(file);
-      }
+    document.querySelectorAll('.modal-close').forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.closest('.modal').classList.remove('active');
+      });
     });
 
-    // --- RENDER GALLERY ---
-    function renderGallery() {
-      const container = document.getElementById('galleryContainer');
-      const emptyState = document.getElementById('galleryEmpty');
+    // Helper: Convert File to Base64
+    function getBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+      });
+    }
 
-      if (galleryData.length === 0) {
-        container.style.display = 'none';
-        emptyState.style.display = 'block';
+    // --- 1. SISWA MODULE ---
+    document.getElementById('openAddSiswaBtn').addEventListener('click', () => openModal('addSiswaModal'));
+    
+    document.getElementById('addSiswaForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const nama = document.getElementById('siswaNama').value;
+      const cita = document.getElementById('siswaCita').value;
+      const hobi = document.getElementById('siswaHobi').value;
+      const file = document.getElementById('siswaFoto').files[0];
+
+      let fotoUrl = await getBase64(file);
+      siswaData.push({ id: Date.now(), nama, cita, hobi, foto: fotoUrl });
+      localStorage.setItem('kesilir_siswa', JSON.stringify(siswaData));
+      
+      renderSiswa();
+      updateStats();
+      this.reset();
+      closeModal('addSiswaModal');
+    });
+
+    function renderSiswa(filter = '') {
+      const grid = document.getElementById('siswaGrid');
+      const empty = document.getElementById('siswaEmpty');
+      const filtered = siswaData.filter(s => s.nama.toLowerCase().includes(filter.toLowerCase()));
+
+      if (filtered.length === 0) {
+        grid.style.display = 'none';
+        empty.style.display = 'block';
       } else {
-        container.style.display = 'grid';
-        emptyState.style.display = 'none';
-        
-        container.innerHTML = galleryData.map(item => `
-          <div class="gallery-card">
-            <img src="${item.image}" alt="${item.judul}" class="gallery-img" onclick="openLightbox('${item.image}', '${item.judul}')">
-            <div class="gallery-info">
-              <div class="gallery-title">${item.judul}</div>
-              <div class="gallery-meta">
-                <span><i class="fa-solid fa-tag"></i> ${item.kategori}</span>
-                <span>${item.tanggal}</span>
-              </div>
+        grid.style.display = 'grid';
+        empty.style.display = 'none';
+        grid.innerHTML = filtered.map(s => `
+          <div class="item-card">
+            <img src="${s.foto}" class="item-img" onclick="openLightbox('${s.foto}', '${s.nama}')">
+            <div class="item-info">
+              <div class="item-title">${s.nama}</div>
+              <div class="item-sub"><i class="fa-solid fa-star" style="color:var(--secondary);"></i> Cita-cita: ${s.cita}</div>
+              <div class="item-sub"><i class="fa-solid fa-heart" style="color:var(--primary);"></i> Hobi: ${s.hobi}</div>
+              <button class="btn-primary-sm" style="margin-top:auto;" onclick="triggerGantiSiswaFoto(${s.id})">
+                <i class="fa-solid fa-camera"></i> Ganti Foto Profil
+              </button>
             </div>
           </div>
         `).join('');
       }
     }
 
-    // --- PESAN / KENANGAN SYSTEM ---
-    const pesanForm = document.getElementById('pesanForm');
-    pesanForm.addEventListener('submit', function(e) {
+    document.getElementById('searchSiswaInput').addEventListener('input', (e) => renderSiswa(e.target.value));
+
+    function triggerGantiSiswaFoto(id) {
+      document.getElementById('gantiSiswaId').value = id;
+      openModal('gantiSiswaFotoModal');
+    }
+
+    document.getElementById('gantiSiswaFotoForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const id = parseInt(document.getElementById('gantiSiswaId').value);
+      const file = document.getElementById('gantiSiswaFotoFile').files[0];
+      
+      if (file) {
+        let newFoto = await getBase64(file);
+        let student = siswaData.find(s => s.id === id);
+        if (student) {
+          student.foto = newFoto;
+          localStorage.setItem('kesilir_siswa', JSON.stringify(siswaData));
+          renderSiswa();
+          this.reset();
+          closeModal('gantiSiswaFotoModal');
+        }
+      }
+    });
+
+    // --- 2. GALERI MODULE ---
+    document.getElementById('openUploadGaleriBtn').addEventListener('click', () => openModal('uploadGaleriModal'));
+
+    document.getElementById('uploadGaleriForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const judul = document.getElementById('galeriJudul').value;
+      const kategori = document.getElementById('galeriKategori').value;
+      const file = document.getElementById('galeriFile').files[0];
+
+      let imgUrl = await getBase64(file);
+      galeriData.unshift({ id: Date.now(), judul, kategori, image: imgUrl, tanggal: new Date().toLocaleDateString('id-ID') });
+      localStorage.setItem('kesilir_galeri', JSON.stringify(galeriData));
+
+      renderGaleri();
+      updateStats();
+      this.reset();
+      closeModal('uploadGaleriModal');
+    });
+
+    function renderGaleri() {
+      const grid = document.getElementById('galeriGrid');
+      const empty = document.getElementById('galeriEmpty');
+
+      if (galeriData.length === 0) {
+        grid.style.display = 'none';
+        empty.style.display = 'block';
+      } else {
+        grid.style.display = 'grid';
+        empty.style.display = 'none';
+        grid.innerHTML = galeriData.map(g => `
+          <div class="item-card">
+            <img src="${g.image}" class="item-img" onclick="openLightbox('${g.image}', '${g.judul}')">
+            <div class="item-info">
+              <span class="item-badge">${g.kategori}</span>
+              <div class="item-title">${g.judul}</div>
+              <div class="item-sub">${g.tanggal}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    // --- 3. KARYA MODULE ---
+    document.getElementById('openAddKaryaBtn').addEventListener('click', () => openModal('uploadKaryaModal'));
+
+    document.getElementById('uploadKaryaForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const judul = document.getElementById('karyaJudul').value;
+      const pembuat = document.getElementById('karyaPembuat').value;
+      const file = document.getElementById('karyaFile').files[0];
+
+      let imgUrl = await getBase64(file);
+      karyaData.unshift({ id: Date.now(), judul, pembuat, image: imgUrl });
+      localStorage.setItem('kesilir_karya', JSON.stringify(karyaData));
+
+      renderKarya();
+      updateStats();
+      this.reset();
+      closeModal('uploadKaryaModal');
+    });
+
+    function renderKarya() {
+      const grid = document.getElementById('karyaGrid');
+      const empty = document.getElementById('karyaEmpty');
+
+      if (karyaData.length === 0) {
+        grid.style.display = 'none';
+        empty.style.display = 'block';
+      } else {
+        grid.style.display = 'grid';
+        empty.style.display = 'none';
+        grid.innerHTML = karyaData.map(k => `
+          <div class="item-card">
+            <img src="${k.image}" class="item-img" onclick="openLightbox('${k.image}', '${k.judul}')">
+            <div class="item-info">
+              <div class="item-title">${k.judul}</div>
+              <div class="item-sub"><i class="fa-solid fa-user"></i> Karya: ${k.pembuat}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    // --- 4. PRESTASI MODULE ---
+    document.getElementById('openAddPrestasiBtn').addEventListener('click', () => openModal('uploadPrestasiModal'));
+
+    document.getElementById('uploadPrestasiForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const judul = document.getElementById('prestasiJudul').value;
+      const siswa = document.getElementById('prestasiSiswa').value;
+      const file = document.getElementById('prestasiFile').files[0];
+
+      let imgUrl = await getBase64(file);
+      prestasiData.unshift({ id: Date.now(), judul, siswa, image: imgUrl });
+      localStorage.setItem('kesilir_prestasi', JSON.stringify(prestasiData));
+
+      renderPrestasi();
+      updateStats();
+      this.reset();
+      closeModal('uploadPrestasiModal');
+    });
+
+    function renderPrestasi() {
+      const grid = document.getElementById('prestasiGrid');
+      const empty = document.getElementById('prestasiEmpty');
+
+      if (prestasiData.length === 0) {
+        grid.style.display = 'none';
+        empty.style.display = 'block';
+      } else {
+        grid.style.display = 'grid';
+        empty.style.display = 'none';
+        grid.innerHTML = prestasiData.map(p => `
+          <div class="item-card">
+            <img src="${p.image}" class="item-img" onclick="openLightbox('${p.image}', '${p.judul}')">
+            <div class="item-info">
+              <div class="item-title">${p.judul}</div>
+              <div class="item-sub"><i class="fa-solid fa-award" style="color:var(--secondary);"></i> Peraih: ${p.siswa}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    // --- 5. PESAN / KENANGAN MODULE ---
+    document.getElementById('pesanForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       const nama = document.getElementById('pesanNama').value;
       const isi = document.getElementById('pesanIsi').value;
+      const fileInput = document.getElementById('pesanFoto');
 
-      const newPesan = {
-        id: Date.now(),
-        nama: nama,
-        isi: isi,
-        tanggal: new Date().toLocaleDateString('id-ID')
-      };
+      let fotoUrl = '';
+      if (fileInput.files.length > 0) {
+        fotoUrl = await getBase64(fileInput.files[0]);
+      }
 
-      pesanData.unshift(newPesan);
+      pesanData.unshift({ id: Date.now(), nama, isi, foto: fotoUrl, tanggal: new Date().toLocaleDateString('id-ID') });
       localStorage.setItem('kesilir_pesan', JSON.stringify(pesanData));
+
       renderPesan();
-      pesanForm.reset();
+      this.reset();
     });
 
     function renderPesan() {
@@ -1232,7 +1602,6 @@
       } else {
         list.style.display = 'grid';
         empty.style.display = 'none';
-
         list.innerHTML = pesanData.map(p => `
           <div class="card" style="margin-bottom:0;">
             <div style="font-weight: 800; color: var(--primary); font-size: 15px; margin-bottom: 4px;">
@@ -1240,38 +1609,44 @@
             </div>
             <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 10px;">${p.tanggal}</div>
             <p style="font-size: 14px; color: var(--text-main); line-height: 1.5;">"${p.isi}"</p>
+            ${p.foto ? `<img src="${p.foto}" class="item-img" style="margin-top:12px; border-radius:10px;" onclick="openLightbox('${p.foto}', 'Pesan dari${p.nama}')">` : ''}
           </div>
         `).join('');
       }
     }
 
-    // --- LIGHTBOX ---
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxCaption = document.getElementById('lightboxCaption');
+    // --- 6. WALI KELAS AVATAR MODULE ---
+    document.getElementById('openGantiWaliAvatarBtn').addEventListener('click', () => openModal('gantiWaliAvatarModal'));
 
-    function openLightbox(src, caption) {
-      lightboxImg.src = src;
-      lightboxCaption.innerText = caption;
-      lightbox.classList.add('active');
-    }
-
-    lightbox.addEventListener('click', () => {
-      lightbox.classList.remove('active');
-    });
-
-    // --- CLEAR DATA PENGATURAN ---
-    document.getElementById('clearDataBtn').addEventListener('click', () => {
-      if (confirm('Apakah Anda yakin ingin menghapus semua foto & pesan yang pernah diunggah?')) {
-        localStorage.removeItem('kesilir_gallery');
-        localStorage.removeItem('kesilir_pesan');
-        galleryData = [];
-        pesanData = [];
-        renderGallery();
-        renderPesan();
-        alert('Semua data unggahan berhasil dibersihkan.');
+    document.getElementById('gantiWaliAvatarForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const file = document.getElementById('waliAvatarFile').files[0];
+      if (file) {
+        waliAvatarData = await getBase64(file);
+        localStorage.setItem('kesilir_wali_avatar', waliAvatarData);
+        renderWaliAvatar();
+        this.reset();
+        closeModal('gantiWaliAvatarModal');
       }
     });
+
+    function renderWaliAvatar() {
+      const container = document.getElementById('waliAvatarContainer');
+      if (waliAvatarData) {
+        container.innerHTML = `<img src="${waliAvatarData}" class="avatar-img" alt="Wali Kelas Vivta Lusiana, S.Si">`;
+      } else {
+        container.innerHTML = `<div class="avatar-placeholder"><i class="fa-solid fa-user-tie"></i></div>`;
+      }
+    }
+
+    // --- LIGHTBOX ---
+    const lightbox = document.getElementById('lightbox');
+    function openLightbox(src, caption) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxCaption').innerText = caption;
+      lightbox.classList.add('active');
+    }
+    lightbox.addEventListener('click', () => lightbox.classList.remove('active'));
   </script>
 </body>
 </html>
